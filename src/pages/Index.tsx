@@ -352,7 +352,114 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="contacts" className="py-20 bg-white px-4">
+      <section id="reviews" className="py-20 bg-white px-4">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-4xl font-bold text-center text-slate-900 mb-4">Отзывы наших клиентов</h2>
+          <p className="text-center text-slate-600 mb-12">
+            Более 50 000 водителей доверяют нам защиту своих автомобилей
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Александр Петров',
+                city: 'Москва',
+                date: '15 октября 2024',
+                rating: 5,
+                text: 'Оформил ОСАГО за 10 минут, не выходя из дома. Полис пришёл на email сразу после оплаты. Очень удобно и быстро! Рекомендую всем, кто ценит своё время.',
+                service: 'ОСАГО'
+              },
+              {
+                name: 'Мария Соколова',
+                city: 'Санкт-Петербург',
+                date: '8 октября 2024',
+                rating: 5,
+                text: 'Попала в ДТП, и менеджер помог собрать все документы для страховой. Поддержка работает действительно 24/7. Выплату получила через 2 недели без проблем.',
+                service: 'КАСКО'
+              },
+              {
+                name: 'Дмитрий Волков',
+                city: 'Казань',
+                date: '2 октября 2024',
+                rating: 5,
+                text: 'Сравнивал цены на КАСКО в разных компаниях — здесь оказалось выгоднее всех. Калькулятор на сайте показал точную стоимость, никаких скрытых платежей.',
+                service: 'КАСКО'
+              },
+              {
+                name: 'Елена Новикова',
+                city: 'Екатеринбург',
+                date: '28 сентября 2024',
+                rating: 5,
+                text: 'Оформляла зелёную карту для поездки в Европу. Всё объяснили, помогли выбрать нужный срок действия. Получила полис через 5 минут на почту.',
+                service: 'Зелёная карта'
+              },
+              {
+                name: 'Игорь Смирнов',
+                city: 'Нижний Новгород',
+                date: '20 сентября 2024',
+                rating: 5,
+                text: 'Уже третий год продлеваю ОСАГО через этот сервис. Всегда быстро, удобно и без лишних вопросов. Менеджер даже напомнил о сроке окончания полиса.',
+                service: 'ОСАГО'
+              },
+              {
+                name: 'Ольга Федорова',
+                city: 'Ростов-на-Дону',
+                date: '12 сентября 2024',
+                rating: 5,
+                text: 'Очень довольна сервисом! Оформила страхование пассажиров для всей семьи. Цены адекватные, менеджер всё подробно рассказал и помог с выбором.',
+                service: 'Страхование пассажиров'
+              }
+            ].map((review, idx) => (
+              <Card key={idx} className="p-6 hover-scale">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h4 className="font-bold text-lg text-slate-900">{review.name}</h4>
+                    <p className="text-sm text-slate-500">{review.city}</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Icon key={i} name="Star" className="text-yellow-400 fill-yellow-400" size={16} />
+                    ))}
+                  </div>
+                </div>
+                
+                <p className="text-slate-600 mb-4 leading-relaxed">{review.text}</p>
+                
+                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                  <span className="text-xs text-primary font-medium">{review.service}</span>
+                  <span className="text-xs text-slate-400">{review.date}</span>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center gap-8 p-6 bg-primary/5 rounded-2xl">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-1">4.9</div>
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Icon key={i} name="Star" className="text-yellow-400 fill-yellow-400" size={20} />
+                  ))}
+                </div>
+                <p className="text-sm text-slate-600">Средняя оценка</p>
+              </div>
+              <div className="h-16 w-px bg-slate-300"></div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-1">2 847</div>
+                <p className="text-sm text-slate-600">Отзывов на Яндекс.Картах</p>
+              </div>
+              <div className="h-16 w-px bg-slate-300"></div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-1">98%</div>
+                <p className="text-sm text-slate-600">Рекомендуют друзьям</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className="py-20 bg-slate-50 px-4">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold text-center text-slate-900 mb-4">Свяжитесь с нами</h2>
           <p className="text-center text-slate-600 mb-12">
